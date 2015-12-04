@@ -1,0 +1,97 @@
+body {
+    background-color: eeeeee;
+    font-family: 'Helvetica Neue', Helvetica;
+    font-weight: 100;
+    font-size: 16;
+    padding: 3% 15%;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 56;
+}
+
+h1, h2, h3 {
+    color: #696969;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    resize: none;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 28;
+    color: black;
+}
+
+table {
+    font-weight: 300;
+    width: 100%;
+    text-align: left;
+}
+
+td {
+    padding: 0 28px 0 0;
+}
+
+#metrics {
+    margin: 0 0 60px 0;
+}
+
+#checkInput {
+    color: teal;
+    font-size: 18;
+    font-weight: 800;
+    float: right;
+    position: relative;
+    margin-top: -40px;
+    padding-right: 8px;
+}
+
+#metric-box-and-whisker-plots {
+    height: 500px;
+}
+
+#out {
+    line-height: 1.3;
+}
+
+#out span {
+    color: black;
+    font-weight: 300;
+}
+
+#badWordDiagnostics {
+    position: absolute;
+    max-width: 300px;
+    max-height: 150px;
+    overflow: scroll;
+    font-weight: 300;
+    font-size: 14;
+    background-color: white;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 12px;
+    opacity: 0.9;
+}
+
+span.bad {
+    border-bottom: 1px solid red;
+    background-color: lightpink;
+    padding: 0 4px;
+}
+
+tr.bad {
+    background-color: lightpink;
+}
+
+td.metric-label {
+    font-weight: 500;
+}
