@@ -18,6 +18,3 @@ I can't speak as to whether he's house trained as yet, but he has pooped in my y
 `
 
 Then, try validating "Hello!" to see the overall metric range errors. You should be able to see "Your Text" in the scatter plot in both cases.
-
-TODO:
-consistent conjugation
