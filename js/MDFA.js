@@ -1,7 +1,6 @@
 "use strict";
 
 var START = "S";
-var REJECT = "R";
 
 var WORD_LEN_ERR = "Invalid word: Must be at least 1 character long.";
 
@@ -14,7 +13,6 @@ var WORD_LEN_ERR = "Invalid word: Must be at least 1 character long.";
 var MDFA = function() {
     this.states = {}; // name -> state
     this.addState(START, []);
-    this.addState(REJECT, []);
 };
 
 /**
