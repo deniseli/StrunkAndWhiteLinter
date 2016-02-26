@@ -19,13 +19,21 @@ Checks.prototype.run = function(word) {
     return this.mdfa.run(word);
 };
 
+var PARENS_ERR = "Enclose parenthetic expressions between commas.";
+var FIRST_PERS_ERR = "Do not use the first person in formal writing.";
+
 var mdfaWords = {
-    "abc" : ["err1"],
-    "abcd" : ["err15"],
-    "cat" : ["err14"],
-    "test" : ["err13"],
-    "moo" : ["err12"],
-    "mooo" : ["err11"]
+    "!" : ["Do not attempt to emphasize simple statements by using a mark of exclamation. The exclamation mark is to be reserved for use after true exclamations or commands."],
+    "(" : [PARENS_ERR],
+    ")" : [PARENS_ERR],
+    "I" : [FIRST_PERS_ERR],
+    "me" : [FIRST_PERS_ERR],
+    "my" : [FIRST_PERS_ERR],
+    "mine" : [FIRST_PERS_ERR],
+    "we" : [FIRST_PERS_ERR],
+    "us" : [FIRST_PERS_ERR],
+    "our" : [FIRST_PERS_ERR],
+    "ours" : [FIRST_PERS_ERR]
 };
 
 /** Fills in the MDFA */

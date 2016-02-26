@@ -9,7 +9,7 @@ var sinon = require("sinon");
 /** Get a test validator instance */
 var setupValidator = function(testCorpus) {
     testCorpus = testCorpus || { corpus: [[
-        {word: "x"}
+        {word: "x", errs: []}
     ]] };
     var dict = {
         "a": true,

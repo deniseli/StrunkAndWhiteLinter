@@ -1,5 +1,6 @@
 mocha tests/ContextFreeChecks.js
 mocha tests/ContextDepChecks.js
+mocha tests/WordMatchChecks.js
 mocha tests/Metrics.js
 mocha tests/CFGParser.js
 mocha tests/CFGRules.js
