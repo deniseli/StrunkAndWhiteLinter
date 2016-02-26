@@ -27,7 +27,7 @@ MDFA.prototype.run = function(word) {
         q = q.trans[word[i]];
         if (!q) return [];
     }
-    return q.name === word ? q.out : [];
+    return q.matches(word) ? q.out : [];
 };
 
 /**
@@ -36,7 +36,10 @@ MDFA.prototype.run = function(word) {
  * @param {Array<String>} out
  */
 MDFA.prototype.addWord = function(word, out) {
-    if (word.length < 1) console.error(WORD_LEN_ERR);
+    if (word.length < 1) {
+        console.error(WORD_LEN_ERR);
+        return;
+    }
     var q = this.states[START];
     for (var i = 1; i < word.length; i++) {
         var s = q.trans[word[i - 1]];
@@ -85,7 +88,16 @@ State.prototype.addOut = function(o) {
  * @param {State} q: 'to' state
  */
 State.prototype.addTransition = function(c, q) {
-    this.trans[c] = q;
+    this.trans[c.toLowerCase()] = q;
+    this.trans[c.toUpperCase()] = q;
+}
+
+/**
+ * @param {String} word
+ * @return {boolean} whether the word matches this state's name
+ */
+State.prototype.matches = function(w) {
+    return w.toLowerCase() === this.name.toLowerCase();
 }
 
 module.exports = MDFA;

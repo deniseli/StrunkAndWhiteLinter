@@ -4,6 +4,7 @@ mocha tests/WordMatchChecks.js
 mocha tests/Metrics.js
 mocha tests/CFGParser.js
 mocha tests/CFGRules.js
+mocha tests/MDFA.js
 mocha tests/Validator.js
 mocha tests/InputCorpus.js
 mocha tests/BookMetricDistributions.js
