@@ -1,5 +1,7 @@
 "use strict";
 
+var WordMatchChecks = require("./WordMatchChecks.js");
+
 /**
  * @constructor
  * @param {InputCorpus} corpus
@@ -8,6 +10,7 @@
 var Validator = function(corpus, dictionary) {
     this.corpus = corpus;
     this.dictionary = dictionary;
+    this.wordMatchChecks = new WordMatchChecks();
 };
 
 Validator.prototype.corpusMetrics = require("./Metrics.js");
@@ -23,6 +26,7 @@ Validator.prototype.dictionaryContains = function(word) {
 Validator.prototype.runAll = function() {
     this.runContextDepChecks();
     this.runContextFreeChecks();
+    this.runWordMatchChecks();
     this.calcCorpusMetrics();
 };
 
@@ -65,5 +69,18 @@ Validator.prototype.runContextFreeChecks = function() {
         }.bind(this));
     }
 };
+
+/**
+ * Runs all the word match checks and adds discovered errors to the corpus
+ */
+Validator.prototype.runWordMatchChecks = function() {
+    this.corpus.corpus.forEach(function(sen) {
+        sen.forEach(function(wordObj) {
+            var newErrs = this.wordMatchChecks.run(wordObj.word);
+            wordObj.errs = wordObj.errs.concat(newErrs);
+        }.bind(this));
+    }.bind(this));
+};
+
 
 module.exports = Validator;
